@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { login } from "./apis/login";
+import { signup } from "./apis/signup";
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -17,7 +18,8 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.post("/login", login);
+app.post("/signin", signup);
 
 app.listen(port, () => {
-  console.log("this is sample");
+  console.log(`Server is started in port: ${port}`);
 });
