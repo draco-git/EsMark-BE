@@ -10,3 +10,18 @@ db-migrate create migration_name --sql-file ------> creates up.sql and down.sql 
 
 db-migrate up
 db-migrate down
+
+# Basic setup
+
+should create a database.json file in src folder
+
+```{
+  "dev": {
+    "driver": "pg",
+    "user": "madhav",
+    "password": "madhav",
+    "host": "localhost",
+    "database": "esmark_local"
+  }
+}
+```
