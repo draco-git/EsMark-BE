@@ -1,18 +1,22 @@
 import { Response, Request } from "express";
 import { pool } from "../client";
+import { generateAccessToken } from "../helper/generateToken";
 
 export const login = (req: Request, res: Response) => {
   const email = req.body.email;
   const password = req.body.password;
-  const query = `SELECT id FROM user_info WHERE email=$1 AND password=$2`;
+  const query = `SELECT id,email FROM user_info WHERE email=$1 AND password=$2`;
   pool.query(query, [email, password], (err, results) => {
     if (err) {
       throw err;
     }
     const valid = results.rows.length > 0;
-    res.status(200).json({
+    const responseMessage = valid ? "Valid user" : "Invalid credentials";
+    const status = valid ? 200 : 401;
+    const token = valid ? generateAccessToken(req, res) : null;
+    res.status(status).json({
       success: valid,
-      response: { body: results.rows },
+      response: { body: { token, message: responseMessage } },
     });
   });
 };
