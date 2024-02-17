@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { login } from "./apis/login";
 import cors from "cors";
 import { signup } from "./apis/signup";
+import { checkUser } from "./apis/checkUser";
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (_req: Request, res: Response) => {
 
 app.post("/login", login);
 app.post("/signin", signup);
+app.post("/checkUser", checkUser);
 
 app.listen(port, () => {
   console.log(`Server is started in port: ${port}`);
