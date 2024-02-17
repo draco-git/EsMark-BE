@@ -12,3 +12,6 @@ CREATE TABLE IF NOT EXISTS user_info
 );
 
 INSERT  INTO user_info (age, first_name, last_name, email,phone, password) values('23', 'admin', '1', 'admin1@gmail.com', '9876543210','admin1');
+
+
+
