@@ -18,7 +18,7 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.post("/login", login);
-app.post("/signin", signup);
+app.post("/signup", signup);
 app.post("/checkUser", checkUser);
 
 app.listen(port, () => {

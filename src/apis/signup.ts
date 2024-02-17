@@ -3,12 +3,12 @@ import { Request, Response } from "express";
 import { generateAccessToken } from "../helper/generateToken";
 
 export const signup = (req: Request, res: Response) => {
-  const { firstName, lastName, email, password, phone, age } = req.body;
+  const {  email, password, phone } = req.body;
   const query =
-    "INSERT INTO user_info (age, first_name, last_name, email,phone, password) VALUES($1, $2, $3, $4, $5, $6)";
+    "INSERT INTO user_info (email, password, phone) VALUES($1, $2, $3)";
   pool.query(
     query,
-    [age, firstName, lastName, email, phone, password],
+    [ email,password,phone],
     (err) => {
       if (err) {
         res.status(200).json({
