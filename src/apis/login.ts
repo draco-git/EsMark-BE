@@ -12,9 +12,8 @@ export const login = (req: Request, res: Response) => {
     }
     const valid = results.rows.length > 0;
     const responseMessage = valid ? "Valid user" : "Invalid credentials";
-    const status = valid ? 200 : 401;
     const token = valid ? generateAccessToken(req, res) : undefined;
-    res.status(status).json({
+    res.status(200).json({
       success: valid,
       response: { body: { token, message: responseMessage } },
     });

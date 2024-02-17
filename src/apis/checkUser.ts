@@ -10,9 +10,8 @@ export const checkUser = (req: Request, res: Response) => {
       throw err;
     }
     const valid = results.rows.length > 0;
-    const status = valid ? 200 : 401;
 
-    res.status(status).json({
+    res.status(200).json({
       success: valid,
     });
   });
