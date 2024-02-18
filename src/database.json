@@ -1,9 +1,9 @@
 {
-"dev": {
-  "driver": "pg",
-  "user": "madhav",
-  "password": "madhav",
-  "host": "localhost",
-  "database": "esmark_local"
-}
+  "dev": {
+    "driver": "pg",
+    "user": "sravyadeepika",
+    "password": "sravyadeepika",
+    "host": "localhost",
+    "database": "esmark_local"
+  }
 }
