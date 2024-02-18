@@ -3,6 +3,8 @@ import { login } from "./apis/login";
 import cors from "cors";
 import { signup } from "./apis/signup";
 import { checkUser } from "./apis/checkUser";
+import { mediaLibrary } from "./apis/getContent";
+import { verifyToken } from "./helper/authenticateToken";
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -20,7 +22,7 @@ app.get("/", (_req: Request, res: Response) => {
 app.post("/login", login);
 app.post("/signup", signup);
 app.post("/checkUser", checkUser);
-
+app.get("/getMedia", verifyToken, mediaLibrary);
 app.listen(port, () => {
   console.log(`Server is started in port: ${port}`);
 });
